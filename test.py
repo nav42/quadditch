@@ -198,6 +198,7 @@ while True:
     nextwaypoint=vehicle.commands.next
     print("lat: ", vehicle.location.global_relative_frame.lat)
     print("lon: ", vehicle.location.global_relative_frame.lon)
+    print("location from home: ", get_location_metres(ehicle.location.global_relative_frame, 37.2226935, -80.432519).lat)
     #print('Distance to waypoint (%s): %s' % (nextwaypoint, distance_to_current_waypoint()))
   
     if nextwaypoint==3: #Skip to next waypoint
