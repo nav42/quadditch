@@ -164,9 +164,12 @@ def arm_and_takeoff(aTargetAltitude):
 
     # Wait until the vehicle reaches a safe height before processing the goto (otherwise the command 
     #  after Vehicle.simple_takeoff will execute immediately).
+    LocationGlobal orginial = LocationGlobal(37.2226935, -80.4323519, 618)
+    LocationGlobal new = LocationGlobal(37.2231837, -80.4331596, 618)
+    print("gps: ", get_distance_meters(original, new)
     while True:
         print(" Altitude: ", vehicle.location.global_relative_frame.alt)  
-        print("GPS: ", vehicle.gps_0)
+        
         if vehicle.location.global_relative_frame.alt>=aTargetAltitude*0.95: #Trigger just below target alt.
             print("Reached target altitude")
             break
