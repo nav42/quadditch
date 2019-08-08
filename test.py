@@ -164,7 +164,7 @@ def arm_and_takeoff(aTargetAltitude):
 
     # Wait until the vehicle reaches a safe height before processing the goto (otherwise the command 
     #  after Vehicle.simple_takeoff will execute immediately).
-    print("location: ", vehicle.location.global_relative_frame.lat)
+    
     while True:
         print(" Altitude: ", vehicle.location.global_relative_frame.alt)  
         
@@ -196,7 +196,9 @@ vehicle.mode = VehicleMode("AUTO")
 
 while True:
     nextwaypoint=vehicle.commands.next
-    print('Distance to waypoint (%s): %s' % (nextwaypoint, distance_to_current_waypoint()))
+    print("lat: ", vehicle.location.global_relative_frame.lat)
+    print("lon: ", vehicle.location.global_relative_frame.lon)
+    #print('Distance to waypoint (%s): %s' % (nextwaypoint, distance_to_current_waypoint()))
   
     if nextwaypoint==3: #Skip to next waypoint
         print('Skipping to Waypoint 5 when reach waypoint 3')
