@@ -207,7 +207,7 @@ while True:
     if nextwaypoint==5: #Dummy waypoint - as soon as we reach waypoint 4 this is true and we exit.
         print("Exit 'standard' mission when start heading to final waypoint (5)")
         break;
-    time.sleep(.1)
+    #time.sleep(.1)
 
 print('Return to launch')
 vehicle.mode = VehicleMode("RTL")
