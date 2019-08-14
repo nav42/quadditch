@@ -174,7 +174,7 @@ def arm_and_takeoff(aTargetAltitude):
         time.sleep(1)
 
         
-print('Create a new mission (for current location)')
+
 adds_square_mission(vehicle.location.global_frame,50)
 
 
@@ -193,13 +193,12 @@ vehicle.mode = VehicleMode("AUTO")
 # Demonstrates getting and setting the command number 
 # Uses distance_to_current_waypoint(), a convenience function for finding the 
 #   distance to the next waypoint.
-
+timer = 0.0
 while True:
     nextwaypoint=vehicle.commands.next
     print("lat: ", vehicle.location.global_relative_frame.lat)
     print("lon: ", vehicle.location.global_relative_frame.lon)
-    print("location from home: ", get_location_metres(vehicle.location.global_relative_frame, 37.2226935, -80.432519).lat)
-    #print('Distance to waypoint (%s): %s' % (nextwaypoint, distance_to_current_waypoint()))
+    print("time: ", timer)
   
     if nextwaypoint==3: #Skip to next waypoint
         print('Skipping to Waypoint 5 when reach waypoint 3')
@@ -207,7 +206,8 @@ while True:
     if nextwaypoint==5: #Dummy waypoint - as soon as we reach waypoint 4 this is true and we exit.
         print("Exit 'standard' mission when start heading to final waypoint (5)")
         break;
-    #time.sleep(.1)
+    timer = timer + .1
+    time.sleep(.1)
 
 print('Return to launch')
 vehicle.mode = VehicleMode("RTL")
